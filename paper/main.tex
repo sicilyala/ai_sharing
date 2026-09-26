@@ -1,0 +1,70 @@
+\documentclass[12pt]{article}
+
+\usepackage{arxiv}
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % micro typography
+\usepackage{lipsum}
+\usepackage{fancyhdr}       % header
+\usepackage{graphicx}       % graphics
+\usepackage{lineno}
+\usepackage{setspace}
+
+\singlespacing
+\graphicspath{{figure/}}     % organize figures under figure/ folder
+
+\pagestyle{fancy}
+\thispagestyle{empty}
+\rhead{ \textit{ }} 
+% \fancyhead[LO]{Running Title for Header}
+
+\title{A template for Arxiv Style Papers}
+
+\author{
+  Author A \\
+  Department of BCD \\
+  EFG University \\
+  HIJ, China \\
+  \texttt{email@main.com} \\
+  \And
+  Author B \\
+  Department of BCD \\
+  EFG University \\
+  HIJ, China \\
+  \texttt{email@main.com} \\
+  \And
+  Author C \\
+  Department of BCD \\
+  EFG University \\
+  HIJ, China \\
+  \texttt{email@main.com} \\
+}
+
+\begin{document}
+\maketitle
+% \linenumbers
+
+% text
+\input{section/0_abstract.tex}
+\input{section/1_introduction.tex}
+\input{section/2_review.tex}
+\input{section/3_method.tex}
+\input{section/4_data.tex}
+\input{section/5_results.tex}
+\input{section/6_conclusion.tex}
+
+% table and figure
+\input{table/table_sample.tex}
+\input{figure/fig_sample.tex}
+
+\section*{Acknowledgments}
+This work was supported in part by.
+
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+\end{document}

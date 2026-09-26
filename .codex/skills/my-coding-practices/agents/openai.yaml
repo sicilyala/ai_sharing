@@ -1,0 +1,4 @@
+interface:
+  display_name: "My Coding Practices"
+  short_description: "Apply typed, reproducible Python practices"
+  default_prompt: "Use $my-coding-practices to implement this repository Python change with its approved logger."
