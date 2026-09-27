@@ -1,0 +1,9 @@
+{
+  "workflow_configs": {
+    "workflow_1_data_understanding": "config/workflow_1_data_understanding/config.json",
+    "workflow_2_visualization": "config/workflow_2_visualization/config.json",
+    "workflow_3_feature_engineering": "config/workflow_3_feature_engineering/config.json",
+    "workflow_4_model_training": "config/workflow_4_model_training/config.json",
+    "workflow_5_model_interpretation": "config/workflow_5_model_interpretation/config.json"
+  }
+}

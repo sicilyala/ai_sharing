@@ -7,15 +7,15 @@ from typing import Any
 
 DEFAULT_LOG_LEVEL = os.getenv("APP_LOG_LEVEL", "INFO").upper()
 DEFAULT_LOG_FILE = os.getenv("APP_LOG_FILE", None)
-DEFAULT_LOG_MAX_BYTES = int(os.getenv("APP_LOG_MAX_BYTES", 10 * 1024 * 1024))
-DEFAULT_LOG_BACKUP_COUNT = int(os.getenv("APP_LOG_BACKUP_COUNT", 5))
+DEFAULT_LOG_MAX_BYTES = int(os.getenv("APP_LOG_MAX_BYTES", "10485760"))
+DEFAULT_LOG_BACKUP_COUNT = int(os.getenv("APP_LOG_BACKUP_COUNT", "5"))
 
 
 def _get_level(level_str: str) -> int:
     level = getattr(logging, level_str, None)
-    if not isinstance(level, int):
-        raise ValueError(f"Invalid log level: {level_str}")
-    return level
+    if isinstance(level, int):
+        return level
+    raise ValueError(f"Invalid log level: {level_str}")
 
 
 def setup_logger(
@@ -66,7 +66,7 @@ def _get_caller_logger() -> logging.Logger:
 def LOG_DEBUG(msg: str, *args: Any, **kwargs: Any) -> None:
     logger = _get_caller_logger()
     # stacklevel=2, 表示跳过一层（LOG_DEBUG）再往上定位, 以正确显示调用位置
-    logger.debug(msg, stacklevel=2, *args, **kwargs)
+    logger.debug(msg, *args, stacklevel=2, **kwargs)
 
 
 def LOG_INFO(msg: str, *args: Any, **kwargs: Any) -> None:
@@ -76,14 +76,14 @@ def LOG_INFO(msg: str, *args: Any, **kwargs: Any) -> None:
 
 def LOG_WARNING(msg: str, *args: Any, **kwargs: Any) -> None:
     logger = _get_caller_logger()
-    logger.warning(msg, stacklevel=2, *args, **kwargs)
+    logger.warning(msg, *args, stacklevel=2, **kwargs)
 
 
 def LOG_ERROR(msg: str, *args: Any, **kwargs: Any) -> None:
     logger = _get_caller_logger()
-    logger.error(msg, stacklevel=2, *args, **kwargs)
+    logger.error(msg, *args, stacklevel=2, **kwargs)
 
 
 def LOG_CRITICAL(msg: str, *args: Any, **kwargs: Any) -> None:
     logger = _get_caller_logger()
-    logger.critical(msg, stacklevel=2, *args, **kwargs)
+    logger.critical(msg, *args, stacklevel=2, **kwargs)

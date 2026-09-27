@@ -1,0 +1,85 @@
+{
+  "data_path": "data",
+  "output_path": "output/metro_traffic_volume",
+  "dataset": {
+    "filename": "Metro_Interstate_Traffic_Volume.csv",
+    "date_column": "date_time",
+    "target_column": "traffic_volume",
+    "weather_column": "weather_main"
+  },
+  "visualization": {
+    "output_directory": "visualization",
+    "weekday_names": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    "axis_intervals": 5,
+    "axis_label_layout": {
+      "x_label_bottom_padding": 28,
+      "y_label_x": 28,
+      "tick_label_gap": 12,
+      "tick_text_baseline_offset": 4
+    },
+    "hour_plot": {
+      "title": "Average I-94 Traffic Volume by Hour",
+      "output_filename": "average_traffic_by_hour.svg",
+      "x_label": "Hour of day (local time)",
+      "y_label": "Average traffic volume (vehicles/hour)",
+      "group_count": 24,
+      "left": 105,
+      "right_padding": 30,
+      "top": 75,
+      "bottom": 500,
+      "tick_interval": 4,
+      "tick_label_offset": 28,
+      "line_width": 3
+    },
+    "weekday_plot": {
+      "title": "Average I-94 Traffic Volume by Weekday",
+      "output_filename": "average_traffic_by_weekday.svg",
+      "x_label": "Day of week",
+      "y_label": "Average traffic volume (vehicles/hour)",
+      "left": 105,
+      "right_padding": 30,
+      "top": 75,
+      "bottom": 500,
+      "bar_width": 78,
+      "tick_label_offset": 25
+    },
+    "weather_plot": {
+      "title": "Average I-94 Traffic Volume by Main Weather Category",
+      "output_filename": "average_traffic_by_weather.svg",
+      "x_label": "Average traffic volume (vehicles/hour)",
+      "y_label": "Main weather category (sample size)",
+      "blank_category_label": "(blank)",
+      "left": 260,
+      "right_padding": 35,
+      "top": 75,
+      "bottom_padding": 55,
+      "tick_label_offset": 25,
+      "label_gap": 12,
+      "bar_vertical_offset_fraction": 0.17,
+      "bar_height_fraction": 0.64,
+      "label_vertical_offset_fraction": 0.72,
+      "x_label_bottom_padding": 18,
+      "y_label_x": 28
+    },
+    "figure": {
+      "width": 960,
+      "height": 600,
+      "width_in": 8,
+      "height_in": 5,
+      "title_y": 35,
+      "font_family": "Times New Roman, serif",
+      "font_size": 10,
+      "grid_line_width": 1,
+      "axis_line_width": 1.4,
+      "tick_line_width": 1,
+      "colors": {
+        "blue": "#4c78a8",
+        "orange": "#f28e2b",
+        "green": "#59a14f",
+        "red": "#e15759",
+        "ink": "#222222",
+        "grid": "#d9d9d9"
+      }
+    }
+  }
+}

@@ -60,7 +60,7 @@ fi
 echo
 echo "=== Pytest ==="
 if find test -type f -name 'test_*.py' | grep -q .; then
-	SDL_VIDEODRIVER="${SDL_VIDEODRIVER:-offscreen}" python -m pytest
+	python -m pytest
 else
 	echo "No pytest files found; skipped"
 fi

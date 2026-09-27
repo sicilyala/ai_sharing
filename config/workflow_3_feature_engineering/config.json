@@ -1,0 +1,35 @@
+{
+  "data_path": "data",
+  "output_path": "output/metro_traffic_volume",
+  "dataset": {
+    "filename": "Metro_Interstate_Traffic_Volume.csv",
+    "date_column": "date_time",
+    "target_column": "traffic_volume",
+    "required_columns": [
+      "holiday",
+      "temp",
+      "rain_1h",
+      "snow_1h",
+      "clouds_all",
+      "weather_main",
+      "weather_description",
+      "date_time",
+      "traffic_volume"
+    ]
+  },
+  "feature_engineering": {
+    "numeric_columns": ["temp", "rain_1h", "snow_1h", "clouds_all", "traffic_volume"],
+    "weekend_day_indices": [5, 6],
+    "features": [
+      {"name": "hour", "operation": "hour", "description": "Hour of day from 0 to 23, derived from date_time."},
+      {"name": "weekday", "operation": "weekday", "description": "Day of week where Monday is 0 and Sunday is 6."},
+      {"name": "month", "operation": "month", "description": "Calendar month from 1 to 12."},
+      {"name": "is_weekend", "operation": "is_weekend", "description": "1 for Saturday/Sunday and 0 for Monday-Friday."}
+    ]
+  },
+  "outputs": {
+    "directory": "feature_engineering",
+    "feature_filename": "metro_traffic_features.csv",
+    "dictionary_filename": "feature_dictionary.md"
+  }
+}

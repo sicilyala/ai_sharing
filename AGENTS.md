@@ -17,12 +17,12 @@ The repo is for AI-assisted research workflow sharing.
 
 - Use `cd $(git rev-parse --show-toplevel) && script/INIT.sh` for routine verification only. Do not add any business code to `script/INIT.sh`.
 - Use `uv add <package>` to add necessary dependencies, and use `uv sync` to update the environment.
-- Use `my-coding-practices` skills when coding.
+- Use `my-coding-practices` & `TDD` skills when coding.
+- Use `bash` for orchestration, `python` for business code, and `javascript` for visualization.
 - When adding a new user workflow:
   - Create shell scripts under `script/feature_folder` with descriptive file names.
   - Add concise descriptions of the new workflow in `script/README.md`, and follows the existing format.
-  - Codes in `src`, `frontend`, and `test` folders and configs in `config` folder, must be structured with the same feature folder name as `script`.
-- Use `bash` for orchestration, `python` for data processing, and `javascript` for visualization.
+  - Codes in `src`, `web`, and `test` folders and configs in `config` folder, must be structured with the same feature folder name as `script`.
 
 ## Repository Map
 

@@ -1,0 +1,90 @@
+{
+  "data_path": "output/metro_traffic_volume/feature_engineering",
+  "output_path": "output/metro_traffic_volume",
+  "dataset": {
+    "filename": "metro_traffic_features.csv",
+    "date_column": "date_time",
+    "target_column": "traffic_volume",
+    "target_unit": "vehicles/hour",
+    "required_columns": [
+      "holiday",
+      "temp",
+      "rain_1h",
+      "snow_1h",
+      "clouds_all",
+      "weather_main",
+      "weather_description",
+      "date_time",
+      "traffic_volume",
+      "hour",
+      "weekday",
+      "month",
+      "is_weekend"
+    ],
+    "model_features": ["temp", "rain_1h", "snow_1h", "clouds_all", "hour", "weekday", "month", "is_weekend", "holiday", "weather_main", "weather_description"]
+  },
+  "split": {
+    "test_fraction": 0.2
+  },
+  "interpretation": {
+    "scoring": "neg_mean_absolute_error",
+    "n_repeats": 10,
+    "random_state": 42,
+    "n_jobs": 1,
+    "top_n": 10
+  },
+  "model_artifact": {
+    "directory": "model_training",
+    "filename": "model.joblib"
+  },
+  "outputs": {
+    "directory": "model_interpretation",
+    "importance_filename": "feature_importance.csv",
+    "interpretation_filename": "interpretation.md",
+    "figure_filename": "feature_importance.svg"
+  },
+  "figures": {
+    "axis_intervals": 5,
+    "importance_plot": {
+      "title": "Held-out Permutation Importance",
+      "x_label": "Increase in held-out MAE after shuffling (vehicles/hour)",
+      "y_label": "Input feature",
+      "left": 280,
+      "right_padding": 45,
+      "top": 75,
+      "bottom_padding": 55,
+      "tick_label_offset": 25,
+      "tick_decimal_places": 1,
+      "label_gap": 14,
+      "feature_label_baseline_offset": 4,
+      "minimum_span": 1,
+      "minimum_bar_width": 1,
+      "bar_height_fraction": 0.5,
+      "zero_line_width": 1.5,
+      "error_line_width": 1.5,
+      "error_cap_height": 10,
+      "x_label_bottom_padding": 18,
+      "y_label_x": 28
+    },
+    "figure": {
+      "width": 960,
+      "height": 600,
+      "width_in": 8,
+      "height_in": 5,
+      "title_y": 35,
+      "font_family": "Times New Roman, serif",
+      "font_size": 10,
+      "grid_line_width": 1,
+      "axis_line_width": 1.4,
+      "tick_line_width": 1,
+      "colors": {
+        "blue": "#4c78a8",
+        "orange": "#f28e2b",
+        "green": "#59a14f",
+        "red": "#e15759",
+        "ink": "#222222",
+        "grid": "#d9d9d9"
+      }
+    }
+  }
+}

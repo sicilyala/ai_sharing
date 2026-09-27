@@ -4,7 +4,7 @@
 
 1. **Visualization**: All plots must have rigorous labeling (units, axes titles), use high DPI (300) and clear font ('Times New Roman', 10pt).
 2. **Type Hinting:** Use `mypy` for static type checking in Python.
-3. **Test:** Using `pytest` for `Python`, `Vitest` for `Javascript`, and `testthat` for `R`.
+3. **Test:** Use `pytest` for `Python`, `Vitest` for `Javascript`, and `testthat` for `R`.
    - **All the test files will be located in the `test/` directory with the same structure as their source code in the `src/` directory.**
 4. **Linter & Formatter:** Use `ruff` for Python linting and formatting.
 
@@ -89,7 +89,7 @@ Disable autoloader via env var and manually activate renv:
 - `cd "$(git rev-parse --show-toplevel)" && RENV_CONFIG_AUTOLOADER_ENABLED=false RENV_CONFIG_SANDBOX_ENABLED=false RENV_CONFIG_SYNCHRONIZED_CHECK=false RENV_PROJECT="$(git rev-parse --show-toplevel)" Rscript -e 'source("renv/activate.R"); renv::load(); cat(.libPaths()[1], "\n")'`
 
 ## `bash` usage practices
-- Use `bash` for scripting and orchestration of Python/R scripts.
+- Use `bash` for scripting and orchestration of Python/R/Javascript scripts.
 - Include error handling in `bash` scripts to ensure that any failure is properly logged and does **NOT** cause cascading failures without clear diagnostics.
 - Use `set -euo pipefail` at the beginning of `bash` scripts.
 - Include the following commands to set up environment variables and workspace configuration as a standard header:

@@ -1,0 +1,32 @@
+{
+  "data_path": "data",
+  "output_path": "output/metro_traffic_volume",
+  "dataset": {
+    "filename": "Metro_Interstate_Traffic_Volume.csv",
+    "date_column": "date_time",
+    "target_column": "traffic_volume",
+    "target_unit": "vehicles per hour",
+    "required_columns": [
+      "holiday",
+      "temp",
+      "rain_1h",
+      "snow_1h",
+      "clouds_all",
+      "weather_main",
+      "weather_description",
+      "date_time",
+      "traffic_volume"
+    ]
+  },
+  "report": {
+    "title": "Metro Interstate Traffic Volume: data overview",
+    "categorical_columns": ["holiday", "weather_main", "weather_description"],
+    "numeric_round_digits": 2,
+    "categorical_top_n": 10
+  },
+  "outputs": {
+    "directory": "data_understanding",
+    "markdown_filename": "data_overview.md",
+    "json_filename": "data_overview.json"
+  }
+}
