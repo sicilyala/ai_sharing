@@ -22,5 +22,6 @@ wheels/
 *.fdb_latexmk
 
 docs/references
+docs/~*.pptx
 data
 output

@@ -47,9 +47,7 @@ def get_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def create_overview(
-    frame: pd.DataFrame, output_dir: Path, config: dict[str, Any]
-) -> tuple[Path, Path]:
+def create_overview(frame: pd.DataFrame, output_dir: Path, config: dict[str, Any]) -> tuple[Path, Path]:
     """Write machine-readable and human-readable dataset summaries."""
     dataset_config = config["dataset"]
     report_config = config["report"]
@@ -61,12 +59,8 @@ def create_overview(
     duplicate_rows = int(frame.duplicated().sum())
     timestamps = pd.to_datetime(frame[date_column], errors="coerce")
     numeric = frame.select_dtypes(include="number")
-    numeric_summary = numeric.describe().transpose().round(
-        report_config["numeric_round_digits"]
-    )
-    categorical_columns = [
-        column for column in report_config["categorical_columns"] if column in frame.columns
-    ]
+    numeric_summary = numeric.describe().transpose().round(report_config["numeric_round_digits"])
+    categorical_columns = [column for column in report_config["categorical_columns"] if column in frame.columns]
 
     overview: dict[str, Any] = {
         "rows": int(frame.shape[0]),
@@ -78,9 +72,7 @@ def create_overview(
         date_column + "_min": timestamps.min().isoformat() if timestamps.notna().any() else None,
         date_column + "_max": timestamps.max().isoformat() if timestamps.notna().any() else None,
         "target": target_column,
-        "target_summary": {
-            str(key): float(value) for key, value in frame[target_column].describe().items()
-        },
+        "target_summary": {str(key): float(value) for key, value in frame[target_column].describe().items()},
     }
 
     output_config = config["outputs"]
@@ -158,9 +150,7 @@ def main() -> None:
     output_root = resolve_workspace_path(args.work_space, config["output_path"])
     try:
         frame = load_raw_data(data_path, config["dataset"])
-        markdown_path, json_path = create_overview(
-            frame, output_root / config["outputs"]["directory"], config
-        )
+        markdown_path, json_path = create_overview(frame, output_root / config["outputs"]["directory"], config)
         duplicate_rows = int(frame.duplicated().sum())
         if duplicate_rows:
             LOG_WARNING("Found %s exact duplicate rows; the raw data was not changed.", duplicate_rows)
