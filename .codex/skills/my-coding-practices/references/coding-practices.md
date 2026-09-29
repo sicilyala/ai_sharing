@@ -1,12 +1,11 @@
-# Agentic coding practices 
+# Agentic coding practices
 
-## General 
+## General
 
-1. **Visualization**: All plots must have rigorous labeling (units, axes titles), use high DPI (300) and clear font ('Times New Roman', 10pt).
-2. **Type Hinting:** Use `mypy` for static type checking in Python.
-3. **Test:** Use `pytest` for `Python`, `Vitest` for `Javascript`, and `testthat` for `R`.
+1. **Type Hinting:** Use `mypy` for static type checking in Python.
+2. **Test:** Use `pytest` for `Python`, `Vitest` for `Javascript`, and `testthat` for `R`.
    - **All the test files will be located in the `test/` directory with the same structure as their source code in the `src/` directory.**
-4. **Linter & Formatter:** Use `ruff` for Python linting and formatting.
+3. **Linter & Formatter:** Use `ruff` for Python linting and formatting.
 
 ## `Python` usage practices
 
